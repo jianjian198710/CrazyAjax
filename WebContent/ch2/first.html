@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<select name="first" id="first" onchange="change(this.value);">
+	<option value="1" selected="selected">China</option>
+	<option value="2">American</option>
+	<option value="3">Japan</option>
+</select>
+<div id="output"></div>
+<script type="text/javascript">
+var xmlrequest;
+
+function createXMLHttpRequest(){
+	
+	if(window.XMLHttpRequest){
+		xmlrequest = new XMLHttpRequest();
+	}else if(window.ActiveXObject){
+		try{
+			xmlrequest = new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch(e){
+			try{
+				xmlrequest = new ActiveXObject("Microsoft.XMLHTTP")
+			}catch(e){
+				
+			}
+		}
+	}
+}
+
+function change(id){
+	createXMLHttpRequest();
+	var uri = "second.jsp?id="+id;
+	xmlrequest.open("POST",uri,true);
+	xmlrequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xmlrequest.onreadystatechange = processResponse;
+	xmlrequest.send(null);
+}
+
+function processResponse(){
+ 	if(xmlrequest.readyState == 4){
+		if(xmlrequest.status == 200){
+			var headers = xmlrequest.getAllResponseHeaders();
+			alert(typeof headers+"\n"+headers);
+			document.getElementById("output").innerHTML = headers;
+		}else{
+			window.alert("Have Exception");
+		}
+	} 
+	alert(xmlrequest.readyState);
+}
+
+</script>
+</body>
+</html>

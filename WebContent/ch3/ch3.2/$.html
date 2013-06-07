@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="lee"></div>
+<div id="yeeku"></div>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$("div").append("New added!");
+$(document.getElementById('lee')).css("background-color","#aaffaa").css("border","1px solid black");
+$("<input type='button' value='ClickMe!'/>").appendTo(document.body);
+$("<input/>",
+		{type:"button",
+		 value:"Surprise",
+		 click:function(){alert("Amazing Time!");}
+		})
+		.appendTo(document.body);
+</script>
+</body>
+</html>

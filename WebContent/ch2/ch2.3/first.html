@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+MySql: <div id="mysql" style="color:red;font-weight:bold"></div>
+Tomcat: <div id="tomcat" style="color:red;font-weight:bold"></div>
+Jetty: <div id="jetty" style="color:red;font-weight:bold"></div>
+
+<script type="text/javascript">
+	var xmlrequest;
+	function createXMLHttpRequest()
+	{
+		if(window.XMLHttpRequest)
+		{
+			xmlrequest = new XMLHttpRequest();
+		}
+		else if(window.ActiveXObject)
+		{
+			try
+			{
+				xmlrequest = new ActiveXObject("Msxml2.XMLHTTP");
+			}
+			catch(e)
+			{
+				try
+				{
+					xmlrequest = new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){}
+			}
+		}
+	}
+	
+	function getPrice()
+	{
+		createXMLHttpRequest();
+		var uri = "second.jsp";
+		xmlrequest.open("POST",uri,true);
+		xmlrequest.onreadystatechange = processResponse;
+		xmlrequest.send(null);
+	}
+	
+	function processResponse()
+	{
+		if(xmlrequest.readyState == 4)
+		{
+			if(xmlrequest.status == 200)
+			{
+				var prices = xmlrequest.responseText.split("$");
+				console.log("Good!!!");
+				document.getElementById("mysql").innerHTML = prices[0];
+				document.getElementById("tomcat").innerHTML = prices[1];
+				document.getElementById("jetty").innerHTML = prices[2];
+				setTimeout("getPrice()",1000);
+			}
+		}
+	}
+	document.body.onload = getPrice;
+</script>
+</body>
+</html>

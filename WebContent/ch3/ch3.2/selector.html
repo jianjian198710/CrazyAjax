@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+	<li id="java">JavaSE</li>
+	<li id="javaee">JavaEE</li>
+	<li id="ajax">Ajax</li>
+	<li id="xml">XML</li>
+	<li><span id="android">Android</span>
+</ul>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+$("java").append("<b>id is JavaSE</b>");
+$("li[id]").css("background-color","#bbbbff");
+$(".test").css("border","3px soild border");
+$("#xml,#android").append("<b>is xml and android</b>");
+$("ul #android").append("<br>android in ul</br>");
+</script>
+</body>
+</html>
