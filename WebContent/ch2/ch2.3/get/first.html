@@ -46,11 +46,16 @@ function processResponse(){
 		if(xmlrequest.status == 200){
 			var cityList = xmlrequest.responseText.split("$");
 			console.info(cityList);
+			//获取用于显示菜单的下拉列表
 			var displaySelect = document.getElementById("second");
+			//将下拉列表清空
 			displaySelect.innerHTML = null;
+			//以字符串数组的每个元素创建option
 			for(var i =0;i<cityList.length;i++){
+				//创建一个option元素
 				var op = document.createElement("option");
 				op.innerHTML = cityList[i];
+				//将新的元素添加到列表后面
 				displaySelect.appendChild(op);
 			}
 		}else{

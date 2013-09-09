@@ -48,11 +48,14 @@ Jetty: <div id="jetty" style="color:red;font-weight:bold"></div>
 		{
 			if(xmlrequest.status == 200)
 			{
+				//得到服务器响应
 				var prices = xmlrequest.responseText.split("$");
+				//通过FireBug的Console可以看到该日志
 				console.log("Good!!!");
 				document.getElementById("mysql").innerHTML = prices[0];
 				document.getElementById("tomcat").innerHTML = prices[1];
 				document.getElementById("jetty").innerHTML = prices[2];
+				//设置一秒钟后再次发送请求
 				setTimeout("getPrice()",1000);
 			}
 		}

@@ -12,6 +12,7 @@
 </select>
 <div id="output"></div>
 <script type="text/javascript">
+//定义了XMLHttpRequest对象
 var xmlrequest;
 
 function createXMLHttpRequest(){
@@ -34,14 +35,20 @@ function createXMLHttpRequest(){
 
 function change(id){
 	createXMLHttpRequest();
+	//设置请求响应的URL
 	var uri = "second.jsp?id="+id;
 	xmlrequest.open("POST",uri,true);
+	//设置请求头
 	xmlrequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	//设置处理响应的回调函数
 	xmlrequest.onreadystatechange = processResponse;
+	//发送请求
 	xmlrequest.send(null);
 }
 
+//定义处理响应的回调函数
 function processResponse(){
+	//响应完成且响应正常
  	if(xmlrequest.readyState == 4){
 		if(xmlrequest.status == 200){
 			var headers = xmlrequest.getAllResponseHeaders();
