@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+	<li id="java">Java</li>
+	<li id="javaee">JavaEE</li>
+	<li id="ajax">Ajax</li>
+	<li id="xml">XML</li>
+	<li id="ejb">EJB</li>
+	<li><span id="android">Android</span></li>
+</ul>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//访问ul元素下第一个li子元素
+$("ul>li:first").append("<b>是ul元素之内第一个li子元素</b>");
+//访问ul元素之内,没有id属性的li子元素
+$("ul>li:not([id])").append("<b>是ul元素之内没有id属性li子元素</b>");
+//访问ul元素之内,索引为偶数的li子元素,并为它们增加背景色
+$("ul>li:even").css("background-color","#ccffcc");
+//访问ul之内索引大于4的li子元素(索引从0开始)
+$("ul>li:gt(4)").append("<br/><b>是ul元素之内,索引大于4的li子元素</b>").css("border","1px dashed black");
+//访问ul元素之内,且包含span元素的li子元素
+$("ul>li:has('span')").append("<br/><b>是ul元素之内且包含span元素的li子元素</b>");
+//访问li元素之内,且可见的span子元素
+$("li>span:visible").append("<b>是li元素之内且可见的span子元素</b>").css("background-color","#bbbbbb");
+</script>
+</body>
+</html>

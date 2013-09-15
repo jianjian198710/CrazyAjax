@@ -7,18 +7,27 @@
 <body>
 <ul>
 	<li id="java">JavaSE</li>
-	<li id="javaee">JavaEE</li>
+	<li id="javaee" class="test">JavaEE</li>
 	<li id="ajax">Ajax</li>
 	<li id="xml">XML</li>
 	<li><span id="android">Android</span>
 </ul>
 <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
-$("java").append("<b>id is JavaSE</b>");
+//获取id为java的元素
+$("#java").append("<b>id is JavaSE</b>");
+//获取所有包含id属性的<li.../>元素,为他们增加背景色
 $("li[id]").css("background-color","#bbbbff");
-$(".test").css("border","3px soild border");
+//获取class属性为test的元素,为他们增加边框
+$(".test").css("border","3px dotted black");
+//同时获取id为xml,android的元素
 $("#xml,#android").append("<b>is xml and android</b>");
+//获取ul之内,id为android的元素
 $("ul #android").append("<br>android in ul</br>");
+//获取ul之内,id为android的直接子元素
+$("ul>#android").append("<br>ul之内,id为android的子元素</br>");
+//获取id为ajax之后的所有li元素
+$("#ajax~li").css("background-color","#ff5555");
 </script>
 </body>
 </html>

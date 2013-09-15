@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//延迟ready()事件处理函数
+$.holdReady(true);
+/*
+ * 指定页面装载完成后的自动回调函数 
+ * jQuery(callback);这种用法是$(document).ready()的缩写,其中callback指定一个函数,在页面加载完成时自动激发callback
+ */
+$(function(){
+	alert("页面加载完成!");
+});
+ //设置2s后取消延迟ready()事件处理函数
+window.setTimeout("$.holdReady(false);",2000);
+</script>
+</body>
+</html>

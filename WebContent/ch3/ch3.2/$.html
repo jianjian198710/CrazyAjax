@@ -9,9 +9,13 @@
 <div id="yeeku"></div>
 <script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
+//获取所有<div.../>标签对应的JQuery对象
 $("div").append("New added!");
+//直接将一个DOM对象包装成JQuery对象
 $(document.getElementById('lee')).css("background-color","#aaffaa").css("border","1px solid black");
+//使用Html字符串创建一个DOM对象,并将其添加到Body元素内
 $("<input type='button' value='ClickMe!'/>").appendTo(document.body);
+//使用HTML字符串创建一个DOM对象,并在创建时添加属性
 $("<input/>",
 		{type:"button",
 		 value:"Surprise",

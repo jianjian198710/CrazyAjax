@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<ul>
+	<li id="java">Java</li>
+	<li id="javaee">JavaEE</li>
+	<li id="ajax">Ajax</li>
+	<li id="xml">XML</li>
+	<li id="ejb">EJB</li>
+	<li><span id="android">Android</span></li>
+</ul>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//访问该页面第1,4,7..个li元素
+$("li:nth-child(3n+1)").css("border","1px dashed black");
+//访问页面中span元素,且该span元素的父元素下仅包含该span元素
+$("span:only-child()").append("<br>是作为父元素唯一子元素的span元素</br>");
+//测试:first和:first-child之间的关系
+alert($("ul>li:first").html()==$("ul>li:first-child").html());
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 支持多选的列表框 -->
+<select name="first" id="first" size="5" multiple="multiple">
+	<option value="1" selected="selected">中国</option>
+	<option value="2">美国</option>
+	<option value="3">日本</option>
+</select>
+<!-- 用于Ajax发送请求的按钮 -->
+<input type="button" value="发送" onClick="send();"/>
+<select name="second" id="second" size="5">
+</select>
+
+<script type="text/javascript">
+function createXML(){
+	//开始创建xml文档,countrys根元素
+	var xml ="<countrys>";
+	var options = document.getElementById("first").childNodes;
+	var option = null;
+	for(var i=0;i<options.length;i++){
+		option = options[i];
+		if(option.selected){
+			//在countrys的根节点下增加一个country子节点
+			xml = xml+"<country>"+option.value+"<\/country>";
+		}
+	}
+	xml = xml+"<\/countrys>";
+	return xml;
+}
+
+function send(){
+	createXMLHttpRequest();
+	
+}
+</script>
+
+</body>
+</html>
