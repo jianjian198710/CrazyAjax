@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<div id="java">Java</div>
+	<div id="javaee">JavaEE</div>
+	<div id="ajax">Ajax</div>
+	<div id="xml">XML</div>
+	<div id="ejb">EJB</div>
+	<div id="android">Android</div>
+</div>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//获取div之内所有的div元素,并迭代处理每个元素
+$("div>div").each(function(i){
+	this.innerHTML +="添加的内容"+i;
+});
+//返回div之内所有div元素的个数
+alert($("div>div").length);
+//获取div之内的第二个元素
+alert($("div>div").get(1).innerHTML);
+//获取id为java的div元素,返回一个只有一个元素的数组
+alert($("#java").get()[0].innerHTML);
+//所有div元素之内,id为ejb的div的索引，输出4
+alert($("div>div").index($("#ejb").get(0)));
+</script>
+</body>
+</html>

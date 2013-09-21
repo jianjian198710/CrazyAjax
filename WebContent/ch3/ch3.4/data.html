@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	最有趣的人物是<span></span>
+	它的年龄是<span></span>
+</div>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	var target = $("<div>java</div>");
+	//向jQuery对象添加book数据
+	target.data("book","疯狂Java讲义");
+	//访问jQuery对象里的book数据
+	alert(target.data("book"));
+	//删除数据
+	target.removeData("book");
+	//再次访问
+	alert(target.data("book"));
+	//获取页面上第一个div元素
+	var div = $("body>div")[0];
+	//向div元素上存储多个key:value对象
+	$.data(div,"test",{name: "孙悟空",age: 500});
+	//访问div元素上存储的数据
+	$("span:first").text(jQuery.data(div,"test").name);
+	$("span:last").text(jQuery.data(div,"test").age);
+</script>
+</body>
+</html>

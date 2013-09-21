@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+var books = [{name:"疯狂Java讲义",price:109},{name:"轻量级Java EE企业级应用实战",price:89},{name:"疯狂Android讲义",price:89}]
+//i代表jQuery对象正在迭代处理的元素的索引
+$("body>div").append(function(i){
+	return "<b>书名是<"+books[i].name+">,价格是:"+books[i].price;
+})
+</script>
+</body>
+</html>

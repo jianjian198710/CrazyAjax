@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//访问浏览器属性
+for(var key in $.browser){
+	document.writeln("当前浏览器的"+key+"属性为: "+$.broswer[key]+"<br/>");
+}
+//测试jQuery.support
+document.writeln("浏览器是否支持创建XMLHttpRequest: "+$.support.ajax+"<br/>");
+//测试jQuery.support
+document.writeln("XMLHttpRequest是否有withCredentials: "+$.support.cors+"<br/>");
+//取出字符串前后的空白
+document.writeln("$.trim('    ddd')的结果是"+$.trim(" ddd")+"<br/>");
+//遍历数组
+$.each(["java","ajax","java ee"],function(index,val){
+	document.writeln("['java','ajax','java ee']的第"+index+"个元素为:"+val+"<br/>");
+});
+//以制定函数过滤数组
+var grepResult = $.grep(["java","ajax","java ee"],function(val,index){
+	return val.length>5;
+});
+document.writeln("['java','ajax','java ee']中数组元素的"+"字符个数大于5的还有: "+grepResult+"<br/>");
+//已旧数组创建新数组
+var mapResult = $.map(["java","ajax","java ee"],function(val,index){
+	return val+index
+});
+document.writeln("以['java','ajax','java ee']创建的新数组为: "+mapResult+"<br/>");
+//创建div元素
+var div = $("<div>aa<div>");
+//以相同的两个div创建数组
+var divArr = [div,div];
+document.writeln("divArr.length的值为: "+divArr.length+"<br/>");
+//执行&.unique去除重复元素
+document.writeln("$.unique(divArr).length的结果为: "+$.unique(divArr).length+"<br/>");
+var str ="aa";
+var strArr=[str,str];
+document.writeln("strArr.length的值为: "+strArr.length+"<br/>");
+document.writeln("$.unique(strArr).length的结果为: "+$.unique(strArr).length+"<br/>")
+</script>
+</body>
+</html>

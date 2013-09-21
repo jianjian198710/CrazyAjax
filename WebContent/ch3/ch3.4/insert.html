@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="GB18030">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="test1" style="border:1px solid black;">id为test1的元素</div>
+<div id="test2" style="border:1px solid black;">id为test2的元素</div>
+<hr/>
+<script type="text/javascript" src="../jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+//直接将一段HTML字符串插入到id为test1的元素的前面
+$("#test1").before("<b>疯狂Ajax讲义<b/>");
+//直接将一段HTML字符串插入到id为test1的元素的后面
+$("#test1").after("<b>疯狂XML讲义<b/>");
+//将id为test2的元素插入到hr之后
+$("#test2").insertAfter("hr");
+//使用函数在不同节点前添加不同内容
+$("body>div").before(function(i){
+	return "<div style='font-size:14pt'>"+i+"</div>";
+})
+</script>
+</body>
+</html>
